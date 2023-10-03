@@ -7,7 +7,7 @@ namespace Application
 {
     public static class ApplicationServiceExtensions
     {
-        public static void AddApplicationLayer(IServiceCollection services)
+        public static void AddApplicationLayer(this IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
 

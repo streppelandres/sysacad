@@ -7,7 +7,7 @@ namespace Shared
 {
     public static class SharedServiceExtensions
     {
-        public static void AddSharedInfraestructure(IServiceCollection services, IConfiguration configuration)
+        public static void AddSharedInfraestructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IDateTimeService, DateTimeService>();
         }
