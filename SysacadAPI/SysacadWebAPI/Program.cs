@@ -1,4 +1,7 @@
 using Application;
+using Persistence;
+using Shared;
+using SysacadWebAPI.Extensions;
 
 namespace SysacadWebAPI
 {
@@ -17,7 +20,9 @@ namespace SysacadWebAPI
 
             builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-            ServiceExtensions.AddApplicationLayer(builder.Services);
+            ApplicationServiceExtensions.AddApplicationLayer(builder.Services);
+            PersistenceServiceExtensions.AddPersistenceInfrastructure(builder.Services, builder.Configuration);
+            SharedServiceExtensions.AddSharedInfraestructure(builder.Services, builder.Configuration);
 
             var app = builder.Build();
 
@@ -31,6 +36,7 @@ namespace SysacadWebAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            AppExtensions.UseErrorHandlerMiddleware(app);
 
 
             app.MapControllers();

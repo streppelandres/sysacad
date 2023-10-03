@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Application
 {
-    public static class ServiceExtensions
+    public static class ApplicationServiceExtensions
     {
         public static void AddApplicationLayer(IServiceCollection services)
         {

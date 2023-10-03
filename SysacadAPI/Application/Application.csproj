@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.Specification" Version="7.0.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="FluentValidation" Version="10.1.0" />
@@ -15,14 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviours\" />
     <Folder Include="DTOs\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Features\" />
+    <Folder Include="Features\User\Commands\DeleteUserCommand\" />
+    <Folder Include="Features\User\Commands\UpdateUserCommand\" />
+    <Folder Include="Features\User\Queries\GetAllUsersQuery\" />
+    <Folder Include="Features\User\Queries\GetUserByIdQuery\" />
     <Folder Include="Filters\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Mappers\" />
-    <Folder Include="Wrappers\" />
   </ItemGroup>
 
 </Project>
