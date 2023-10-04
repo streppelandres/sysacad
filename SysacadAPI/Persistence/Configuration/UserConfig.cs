@@ -12,9 +12,11 @@ namespace Persistence.Configuration
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Username)
+                .HasMaxLength(80)
                 .IsRequired();
 
             builder.Property(x => x.Password)
+                .HasMaxLength(256)
                 .IsRequired();
 
             builder.Property(x => x.Email)
