@@ -1,4 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.Exceptions;
+using Application.Interfaces;
+using Application.Specifications;
 using Application.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -32,6 +34,9 @@ namespace Application.Features.User.Commands.CreateUserCommand
 
         public async Task<ResponseWrapper<int>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+            var registeredDocumentNumber = await _repositoryAsync.FirstOrDefaultAsync(new UserWithDocumentNumberSpecification(request.DocumentNumber));
+            if (registeredDocumentNumber != null) throw new UserDocumentRegisteredException();
+
             var mappedUser = _mapper.Map<Domain.Entities.User>(request);
             var data = await _repositoryAsync.AddAsync(mappedUser);
             return new ResponseWrapper<int>(data.Id);

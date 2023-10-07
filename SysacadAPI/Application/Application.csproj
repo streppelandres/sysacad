@@ -16,11 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Features\User\Commands\DeleteUserCommand\" />
-    <Folder Include="Features\User\Commands\UpdateUserCommand\" />
-    <Folder Include="Features\User\Queries\GetAllUsersQuery\" />
-    <Folder Include="Features\User\Queries\GetUserByIdQuery\" />
+    <Folder Include="Features\Course\Queries\" />
     <Folder Include="Filters\" />
   </ItemGroup>
 

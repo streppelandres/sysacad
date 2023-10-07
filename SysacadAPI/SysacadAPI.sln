@@ -11,15 +11,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraest
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6949604D-1441-4D9F-8845-7443F21DF279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{962661EA-F3C5-4614-B71C-C26FAE3DA4BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{962661EA-F3C5-4614-B71C-C26FAE3DA4BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A493B925-EDA3-4169-BF26-CF3A1DF0862C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A493B925-EDA3-4169-BF26-CF3A1DF0862C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{D2D87C12-D96D-4BF9-B2FA-696E30603417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{D2D87C12-D96D-4BF9-B2FA-696E30603417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D9ECB311-E518-4E89-9DD9-192A93E256B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{D9ECB311-E518-4E89-9DD9-192A93E256B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysacadWebAPI", "SysacadWebAPI\SysacadWebAPI.csproj", "{75880BE2-A237-453D-AACE-1316A6767D86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SysacadWebAPI", "SysacadWebAPI\SysacadWebAPI.csproj", "{75880BE2-A237-453D-AACE-1316A6767D86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{590DEE2C-789F-461A-B9A6-9B3E38737E9E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -32,6 +32,9 @@ namespace Persistence.Configuration
             builder.Property(p => p.LastModifiedBy)
                 .HasMaxLength(50)
                 .IsRequired(false);
+
+            builder.HasIndex(x => x.DocumentNumber)
+                .IsUnique();
         }
     }
 }
