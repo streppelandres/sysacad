@@ -24,6 +24,14 @@ namespace Persistence.Configuration
 
             builder.Property(x => x.DocumentNumber)
                 .IsRequired();
+
+            builder.Property(p => p.CreatedBy)
+                .HasMaxLength(50)
+                .IsRequired(false);
+
+            builder.Property(p => p.LastModifiedBy)
+                .HasMaxLength(50)
+                .IsRequired(false);
         }
     }
 }

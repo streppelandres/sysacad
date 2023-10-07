@@ -22,7 +22,10 @@
     <Folder Include="Features\User\Queries\GetAllUsersQuery\" />
     <Folder Include="Features\User\Queries\GetUserByIdQuery\" />
     <Folder Include="Filters\" />
-    <Folder Include="Mappers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

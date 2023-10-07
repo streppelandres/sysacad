@@ -27,7 +27,7 @@ namespace SysacadWebAPI.Middlewares
 
                 switch (exception)
                 {
-                    case Application.Exceptions.APIException _:
+                    case Application.Exceptions.ApiException _:
                         response.StatusCode = (int) HttpStatusCode.BadRequest;
                         break;
                     case Application.Exceptions.ValidationException e:

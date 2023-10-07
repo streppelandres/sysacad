@@ -23,6 +23,7 @@ namespace SysacadWebAPI
             builder.Services.AddApplicationLayer();
             builder.Services.AddPersistenceInfrastructure(builder.Configuration);
             builder.Services.AddSharedInfraestructure(builder.Configuration);
+            builder.Services.AddApiVersioningExtension();
 
             var app = builder.Build();
 
