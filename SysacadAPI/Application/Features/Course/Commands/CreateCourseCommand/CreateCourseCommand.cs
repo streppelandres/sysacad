@@ -15,6 +15,7 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
         public short MaxStudents { get; set; }
         public string ClassRoom { get; set;  }
         public string Division { get; set; }
+        public short Quarter { get; set; } // TODO Type
     }
 
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, ResponseWrapper<int>>

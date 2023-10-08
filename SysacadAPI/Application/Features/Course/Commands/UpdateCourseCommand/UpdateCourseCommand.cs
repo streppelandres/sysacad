@@ -16,6 +16,7 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
         public short MaxStudents { get; set; }
         public string ClassRoom { get; set; }
         public string Division { get; set; }
+        public short Quarter { get; set; } // TODO Type
     }
 
     public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, ResponseWrapper<int>>

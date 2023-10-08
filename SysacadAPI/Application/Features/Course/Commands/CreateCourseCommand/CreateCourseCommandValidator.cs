@@ -31,8 +31,14 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
             RuleFor(x => x.MaxStudents)
                 .NotEmpty()
                     .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
-                .GreaterThan((short)0)
+                .GreaterThan((short) 0)
                     .WithMessage(GenericValidationMessages.PropertyMustBeGreaterThanZeroMessage);
+
+            RuleFor(x => x.Quarter)
+                .NotEmpty()
+                    .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
+                .InclusiveBetween((short) 1, (short) 4)
+                    .WithMessage($"Incorrect quarter, valid ones: 1, 2, 3, 4");  // TODO: Make this better
         }
 
     }

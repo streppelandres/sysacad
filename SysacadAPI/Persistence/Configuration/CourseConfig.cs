@@ -49,6 +49,9 @@ namespace Persistence.Configuration
                 .WithOne(s => s.Course)
                 .HasForeignKey(s => s.CourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(p => p.Quarter)
+                .IsRequired(true);
         }
     }
 }
