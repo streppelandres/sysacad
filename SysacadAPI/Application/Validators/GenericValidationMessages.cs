@@ -1,6 +1,8 @@
-﻿namespace Application.Constants
+﻿
+
+namespace Application.Validators
 {
-    public static class ValidationMessages
+    public static class GenericValidationMessages
     {
         public const string PropertyNameNotEmptyMessage = "{PropertyName} can't be empty";
         public const string PropertyNameMaxLenghtMessage = "{PropertyName} Cannot exceed the maximum of {MaxLength}";

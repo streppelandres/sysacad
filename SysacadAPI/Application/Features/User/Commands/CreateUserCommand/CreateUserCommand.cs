@@ -35,7 +35,7 @@ namespace Application.Features.User.Commands.CreateUserCommand
         public async Task<ResponseWrapper<int>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var registeredDocumentNumber = await _repositoryAsync.FirstOrDefaultAsync(new UserWithDocumentNumberSpecification(request.DocumentNumber));
-            if (registeredDocumentNumber != null) throw new UserDocumentRegisteredException();
+            if (registeredDocumentNumber != null) throw new ApiException("User document number already registered");
 
             var mappedUser = _mapper.Map<Domain.Entities.User>(request);
             var data = await _repositoryAsync.AddAsync(mappedUser);
