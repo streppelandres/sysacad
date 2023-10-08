@@ -1,5 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Features.Course.Commands.CreateCourseCommand;
+using Application.Features.Course.Queries.GetAllCoursesByStudentId;
 using Application.Features.Schedule.Commands.CreateScheduleCommand;
 using Application.Features.User.Commands.CreateUserCommand;
 using AutoMapper;
@@ -15,6 +16,7 @@ namespace Application.Mappers
             CreateMap<CreateScheduleCommand, Schedule>();
             CreateMap<CreateCourseCommand, Course>();
             CreateMap<Schedule, ScheduleDto>();
+            CreateMap<Course, GetAllCoursesByStudentIdResponse>();
         }
     }
 }
