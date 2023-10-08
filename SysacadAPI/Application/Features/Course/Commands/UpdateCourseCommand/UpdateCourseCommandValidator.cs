@@ -1,13 +1,13 @@
 ﻿using Application.Validators;
 using FluentValidation;
 
-namespace Application.Features.Course.Commands.CreateCourseCommand
+namespace Application.Features.Course.Commands.UpdateCourseCommand
 {
-    public class CreateCourseCommandValidator : AbstractValidator<CreateCourseCommand>
+    public class UpdateCourseCommandValidator : AbstractValidator<UpdateCourseCommand>
     {
-        public CreateCourseCommandValidator()
+        public UpdateCourseCommandValidator()
         {
-            // TODO: Repetead in `UpdateCourseCommandValidator`
+            // TODO: Repetead in `CreateCourseCommandValidator`
             RuleFor(x => x.Name)
                 .NotEmpty()
                     .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
@@ -34,6 +34,5 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
                 .GreaterThan((short)0)
                     .WithMessage(GenericValidationMessages.PropertyMustBeGreaterThanZeroMessage);
         }
-
     }
 }
