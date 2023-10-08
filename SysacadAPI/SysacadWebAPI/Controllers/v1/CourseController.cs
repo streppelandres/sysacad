@@ -11,15 +11,6 @@ namespace SysacadWebAPI.Controllers.v1
     [ApiVersion("1.0")]
     public class CourseController : BaseApiController
     {
-        [HttpPost]
-        [SwaggerOperation(Summary = "Creates a Course", Description = "")]
-        public async Task<IActionResult> Create(CreateCourseCommand createCourse) => Ok(await Mediator.Send(createCourse));
-
-        [HttpPut("{id}")]
-        [SwaggerOperation(Summary = "Updates a Course", Description = "")]
-        public async Task<IActionResult> Update(int id, UpdateCourseCommand updateCourse)
-            => id == updateCourse.Id ? Ok(await Mediator.Send(updateCourse)) : BadRequest();
-
         [HttpGet("student/{studentId}")]
         [SwaggerOperation(Summary = "Gets all courses from a student", Description = "")]
         public async Task<IActionResult> GetByStudent(int studentId)
@@ -29,6 +20,16 @@ namespace SysacadWebAPI.Controllers.v1
         [SwaggerOperation(Summary = "Gets all courses by year and quarter", Description = "")]
         public async Task<IActionResult> GetByYearAndQuarter(string year, short quarter)
             => Ok(await Mediator.Send(new GetAllCoursesByYearAndQuarterQuery { Year = year, Quarter = quarter }));
+
+        [HttpPost]
+        [SwaggerOperation(Summary = "Creates a Course", Description = "")]
+        public async Task<IActionResult> Create(CreateCourseCommand createCourse) => Ok(await Mediator.Send(createCourse));
+
+        [HttpPut("{id}")]
+        [SwaggerOperation(Summary = "Updates a Course", Description = "")]
+        public async Task<IActionResult> Update(int id, UpdateCourseCommand updateCourse)
+            => id == updateCourse.Id ? Ok(await Mediator.Send(updateCourse)) : BadRequest();
+
 
         [HttpDelete("{id}")]
         [SwaggerOperation(Summary = "Deletes a Course", Description = "")]
