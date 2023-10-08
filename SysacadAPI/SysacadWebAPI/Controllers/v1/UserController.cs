@@ -6,7 +6,9 @@ namespace SysacadWebAPI.Controllers.v1
     [ApiVersion("1.0")]
     public class UserController : BaseApiController
     {
-        //POST api/<controller>
+        /// <summary>
+        /// Creates a user
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> Post(CreateUserCommand createUserCommand) => Ok(await Mediator.Send(createUserCommand));
     }

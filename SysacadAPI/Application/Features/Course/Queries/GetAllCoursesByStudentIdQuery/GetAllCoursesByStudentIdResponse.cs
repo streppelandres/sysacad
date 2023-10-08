@@ -1,6 +1,6 @@
 ﻿using Application.DTOs;
 
-namespace Application.Features.Course.Queries.GetAllCoursesByStudentId
+namespace Application.Features.Course.Queries.GetAllCoursesByStudentIdQuery
 {
     public class GetAllCoursesByStudentIdResponse
     {

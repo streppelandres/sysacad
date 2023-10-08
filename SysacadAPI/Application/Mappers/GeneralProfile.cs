@@ -1,6 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Features.Course.Commands.CreateCourseCommand;
-using Application.Features.Course.Queries.GetAllCoursesByStudentId;
+using Application.Features.Course.Queries.GetAllCoursesByStudentIdQuery;
 using Application.Features.Schedule.Commands.CreateScheduleCommand;
 using Application.Features.User.Commands.CreateUserCommand;
 using AutoMapper;

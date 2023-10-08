@@ -1,12 +1,11 @@
-﻿using Application.DTOs;
-using Application.Exceptions;
+﻿using Application.Exceptions;
 using Application.Interfaces;
 using Application.Specifications;
 using Application.Wrappers;
 using AutoMapper;
 using MediatR;
 
-namespace Application.Features.Course.Queries.GetAllCoursesByStudentId
+namespace Application.Features.Course.Queries.GetAllCoursesByStudentIdQuery
 {
     public class GetAllCoursesByStudentIdQuery : IRequest<ResponseWrapper<ICollection<GetAllCoursesByStudentIdResponse>>>
     {

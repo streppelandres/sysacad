@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Course\Queries\GetAllCoursesByYear\" />
-    <Folder Include="Features\Course\Queries\GetCourseById\" />
+    <Folder Include="Features\Course\Queries\GetAllCoursesByYearQuery\" />
+    <Folder Include="Features\Course\Queries\GetCourseByIdQuery\" />
     <Folder Include="Features\Student\Queries\GetAllStudentByCourseId\" />
   </ItemGroup>
 

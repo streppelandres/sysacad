@@ -5,7 +5,7 @@ using Application.Wrappers;
 using AutoMapper;
 using MediatR;
 
-namespace Application.Features.Schedule.Queries.GetScheduleById
+namespace Application.Features.Schedule.Queries.GetScheduleByIdQuery
 {
     public class GetScheduleByIdQuery : IRequest<ResponseWrapper<ScheduleDto>>
     {
