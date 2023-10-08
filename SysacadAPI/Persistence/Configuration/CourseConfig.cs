@@ -20,7 +20,7 @@ namespace Persistence.Configuration
                 .IsRequired(false);
 
             builder.Property(p => p.Division)
-                .HasMaxLength(1)
+                .HasMaxLength(2)
                 .IsRequired(true);
 
             builder.Property(p => p.Code)
@@ -52,6 +52,15 @@ namespace Persistence.Configuration
 
             builder.Property(p => p.Quarter)
                 .IsRequired(true);
+
+            builder.Property(p => p.Shift)
+                .IsRequired(true);
+
+            builder.Property(p => p.StartDate)
+                .IsRequired(false);
+
+            builder.Property(p => p.EndDate)
+                .IsRequired(false);
         }
     }
 }

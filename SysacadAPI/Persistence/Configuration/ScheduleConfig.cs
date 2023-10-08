@@ -20,9 +20,6 @@ namespace Persistence.Configuration
 
             builder.Property(x => x.EndTime)
                 .IsRequired();
-
-            builder.Property(x => x.Shift)
-                .IsRequired();
         }
     }
 }

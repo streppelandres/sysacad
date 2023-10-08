@@ -15,9 +15,6 @@ namespace Application.Features.Schedule.Commands.CreateScheduleCommand
 
             RuleFor(x => x.EndTime)
                 .ValidateTimeFormat();
-
-            RuleFor(x => x.Shift)
-                .ValidateShift();
         }
     }
 }

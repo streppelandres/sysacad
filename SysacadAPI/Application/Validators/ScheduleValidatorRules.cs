@@ -8,15 +8,10 @@ namespace Application.Validators
 
         // TODO: Make this better
         private static readonly string[] DaysOfWeek = new[] { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
-        // TODO: Make this better
-        private static readonly string[] Shifts = new[] { "morning", "afternoon", "night" };
-
         private static bool ValidateDayOfWeek(string input) => DaysOfWeek.Contains(input.ToLower());
 
         private static bool ValidateTime(string input)
             => DateTime.TryParseExact(input, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime _);
-
-        private static bool ValidateShift(string input) => Shifts.Contains(input.ToLower());
 
         public static IRuleBuilderOptions<T, string> ValidateDayOfWeek<T>(this IRuleBuilder<T, string> ruleBuilder)
         {
@@ -34,16 +29,6 @@ namespace Application.Validators
                     .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
                 .Must(ValidateTime)
                     .WithMessage("{PropertyName}, invalid format. Use HH:mm");
-        }
-
-        public static IRuleBuilderOptions<T, string> ValidateShift<T>(this IRuleBuilder<T, string> ruleBuilder)
-        {
-            return ruleBuilder
-                .NotEmpty()
-                    .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
-                .Must(ValidateShift)
-                    .WithMessage("{PropertyName} Invalid Shift valid ones: " + string.Join(", ", Shifts));
-
         }
     }
 }

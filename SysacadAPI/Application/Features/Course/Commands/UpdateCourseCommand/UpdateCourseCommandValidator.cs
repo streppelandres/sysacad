@@ -19,7 +19,7 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
                     .WithMessage(GenericValidationMessages.PropertyNameMaxLenghtMessage);
 
             RuleFor(x => x.Division)
-                .MaximumLength(1)
+                .MaximumLength(2)
                     .WithMessage(GenericValidationMessages.PropertyNameMaxLenghtMessage);
 
             RuleFor(x => x.Code)
@@ -35,10 +35,16 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
                     .WithMessage(GenericValidationMessages.PropertyMustBeGreaterThanZeroMessage);
 
             RuleFor(x => x.Quarter)
-                .NotEmpty()
-                    .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
-                .InclusiveBetween((short) 1, (short) 4)
-                    .WithMessage($"Incorrect quarter, valid ones: 1, 2, 3, 4"); // TODO: Make this better
+                .ValidateQuarter();
+
+            RuleFor(x => x.Shift)
+                .ValidateShift();
+
+            RuleFor(x => x.StartDate)
+                .ValidateDateTime();
+
+            RuleFor(x => x.EndDate)
+                .ValidateDateTime();
         }
     }
 }
