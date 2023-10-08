@@ -28,7 +28,7 @@ namespace Application.Features.Schedule.Commands.CreateScheduleCommand
         {
             var mappedSchedule = _mapper.Map<Domain.Entities.Schedule>(request);
             var data = await _repositoryAsync.AddAsync(mappedSchedule);
-            return new ResponseWrapper<int>(data.Id);
+            return new ResponseWrapper<int>(data.Id, "Schedule created correctly");
         }
     }
 }

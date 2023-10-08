@@ -29,7 +29,7 @@ namespace Application.Features.Schedule.Commands.DeleteScheduleCommand
 
             await _repositoryAsync.DeleteAsync(schedule);
 
-            return new ResponseWrapper<int>(schedule.Id);
+            return new ResponseWrapper<int>(schedule.Id, "Schedule deleted correctly");
         }
     }
 

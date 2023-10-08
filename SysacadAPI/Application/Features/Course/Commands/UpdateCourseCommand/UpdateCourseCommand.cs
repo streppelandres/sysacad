@@ -7,19 +7,9 @@ using MediatR;
 
 namespace Application.Features.Course.Commands.UpdateCourseCommand
 {
-    public class UpdateCourseCommand : IRequest<ResponseWrapper<int>> // TODO: Maybe you can heredate from Create
+    public class UpdateCourseCommand : CreateCourseCommand.CreateCourseCommand
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Code { get; set; }
-        public short MaxStudents { get; set; }
-        public string ClassRoom { get; set; }
-        public string Division { get; set; }
-        public string StartDate { get; set; } // TODO: Type and format % "18/07/2023", in db "20230718"
-        public string EndDate { get; set; } // TODO: Type and format % "18/07/2023", in db "20230718"
-        public short Quarter { get; set; } // TODO: type
-        public string Shift { get; set; } // TODO: Type
     }
 
     public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, ResponseWrapper<int>>
@@ -47,10 +37,14 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
             course.MaxStudents = request.MaxStudents;
             course.ClassRoom = request.ClassRoom;
             course.Division = request.Division;
+            course.Quarter = request.Quarter;
+            course.StartDate = request.StartDate;
+            course.EndDate = request.EndDate;
+            course.Shift = request.Shift;
 
             await _repositoryAsync.UpdateAsync(course);
 
-            return new ResponseWrapper<int>(course.Id);
+            return new ResponseWrapper<int>(course.Id, "Course updated correctly");
         }
     }
 }

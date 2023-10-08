@@ -39,7 +39,7 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
 
             var mappedCourse = _mapper.Map<Domain.Entities.Course>(request);
             var data = await _repositoryAsync.AddAsync(mappedCourse);
-            return new ResponseWrapper<int>(data.Id);
+            return new ResponseWrapper<int>(data.Id, "Course created correctly");
         }
     }
 }
