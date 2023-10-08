@@ -16,7 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Course\Queries\" />
+    <Folder Include="Features\Course\Queries\GetAllCourses\" />
+    <Folder Include="Features\Course\Queries\GetCourseById\" />
+    <Folder Include="Features\Course\Queries\GetAllCoursesByStudentId\" />
+    <Folder Include="Features\Student\Queries\GetAllStudentByCourseId\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,9 +7,17 @@ namespace Application.Features.Schedule.Commands.CreateScheduleCommand
     {
         public CreateScheduleCommandValidator()
         {
-            RuleFor(x => x.DayOfWeek).ValidateDayOfWeek();
-            RuleFor(x => x.StartTime).ValidateTimeFormat();
-            RuleFor(x => x.EndTime).ValidateTimeFormat();
+            RuleFor(x => x.DayOfWeek)
+                .ValidateDayOfWeek();
+
+            RuleFor(x => x.StartTime)
+                .ValidateTimeFormat();
+
+            RuleFor(x => x.EndTime)
+                .ValidateTimeFormat();
+
+            RuleFor(x => x.Shift)
+                .ValidateShift();
         }
     }
 }
