@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231008055304_Migration9")]
-    partial class Migration9
+    [Migration("20231008222257_migration1")]
+    partial class migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,28 +40,17 @@ namespace Persistence.Migrations
                     b.Property<int>("Code")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasMaxLength(148)
                         .HasColumnType("nvarchar(148)");
 
                     b.Property<string>("Division")
                         .IsRequired()
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
-                    b.Property<string>("LastModifiedBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("LastModifiedDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("EndDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<short>("MaxStudents")
                         .HasColumnType("smallint");
@@ -73,6 +62,18 @@ namespace Persistence.Migrations
 
                     b.Property<short>("Quarter")
                         .HasColumnType("smallint");
+
+                    b.Property<string>("Shift")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("New");
 
                     b.HasKey("Id");
 
@@ -101,10 +102,6 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Shift")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("StartTime")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -114,6 +111,25 @@ namespace Persistence.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("Schedule", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Student", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.StudentCourse", b =>
@@ -142,13 +158,6 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<long>("DocumentNumber")
                         .HasColumnType("bigint");
 
@@ -162,13 +171,6 @@ namespace Persistence.Migrations
 
                     b.Property<bool>("HasToChangePassword")
                         .HasColumnType("bit");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("LastModifiedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -194,15 +196,6 @@ namespace Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("User", (string)null);
-
-                    b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Student", b =>
-                {
-                    b.HasBaseType("Domain.Entities.User");
-
-                    b.ToTable("Student", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Schedule", b =>
@@ -214,6 +207,17 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Student", b =>
+                {
+                    b.HasOne("Domain.Entities.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Domain.Entities.Student", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.StudentCourse", b =>
@@ -233,15 +237,6 @@ namespace Persistence.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Student", b =>
-                {
-                    b.HasOne("Domain.Entities.User", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Student", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Course", b =>

@@ -110,6 +110,25 @@ namespace Persistence.Migrations
                     b.ToTable("Schedule", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Student", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.StudentCourse", b =>
                 {
                     b.Property<int>("StudentId")
@@ -174,15 +193,6 @@ namespace Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("User", (string)null);
-
-                    b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Student", b =>
-                {
-                    b.HasBaseType("Domain.Entities.User");
-
-                    b.ToTable("Student", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Schedule", b =>
@@ -194,6 +204,17 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Student", b =>
+                {
+                    b.HasOne("Domain.Entities.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Domain.Entities.Student", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.StudentCourse", b =>
@@ -213,15 +234,6 @@ namespace Persistence.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Student", b =>
-                {
-                    b.HasOne("Domain.Entities.User", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Student", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Course", b =>

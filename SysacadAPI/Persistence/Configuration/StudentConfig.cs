@@ -9,6 +9,12 @@ namespace Persistence.Configuration
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.ToTable("Student");
+
+            builder
+                .HasOne(s => s.User)
+                .WithOne()
+                .HasForeignKey<Student>(s => s.UserId);
+
             builder
                 .HasMany(e => e.StudentCourses)
                 .WithOne(sc => sc.Student)
