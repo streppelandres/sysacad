@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace SysacadWebAPI.Controllers
 {
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v1/[controller]")]
     public abstract class BaseApiController : ControllerBase
     {
         private IMediator _mediator;

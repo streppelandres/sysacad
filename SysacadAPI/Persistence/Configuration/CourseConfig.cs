@@ -19,6 +19,10 @@ namespace Persistence.Configuration
                 .HasMaxLength(148)
                 .IsRequired(false);
 
+            builder.Property(p => p.Division)
+                .HasMaxLength(1)
+                .IsRequired(true);
+
             builder.Property(p => p.Code)
                 .IsRequired(true);
 
@@ -43,7 +47,8 @@ namespace Persistence.Configuration
 
             builder.HasMany(c => c.Schedules)
                 .WithOne(s => s.Course)
-                .HasForeignKey(s => s.CourseId);
+                .HasForeignKey(s => s.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
