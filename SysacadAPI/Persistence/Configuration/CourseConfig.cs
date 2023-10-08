@@ -29,14 +29,6 @@ namespace Persistence.Configuration
             builder.Property(p => p.MaxStudents)
                 .IsRequired(true);
 
-            builder.Property(p => p.CreatedBy)
-                .HasMaxLength(50)
-                .IsRequired(false);
-
-            builder.Property(p => p.LastModifiedBy)
-                .HasMaxLength(50)
-                .IsRequired(false);
-
             builder
                 .HasMany(c => c.StudentCourses)
                 .WithOne(sc => sc.Course)

@@ -9,7 +9,6 @@ namespace Application.Features.User.Commands.CreateUserCommand
 {
     public class CreateUserCommand : IRequest<ResponseWrapper<int>>
     {
-        public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
