@@ -11,6 +11,7 @@ namespace Application.Validators
         private static bool isValidQuarter(short input) => input >= 1 && input <= 4;
         private static bool isValidDateTime(string input)
             => DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime _);
+        private static bool isValidYear(string input) => int.TryParse(input, out int _);
 
         public static IRuleBuilderOptions<T, string> ValidateShift<T>(this IRuleBuilder<T, string> ruleBuilder)
         {
@@ -37,6 +38,15 @@ namespace Application.Validators
                     .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
                 .Must(isValidDateTime)
                     .WithMessage("{PropertyName}, invalid format. Use dd/MM/yyyy");
+        }
+
+        public static IRuleBuilderOptions<T, string> ValidateYear<T>(this IRuleBuilder<T, string> ruleBuilder)
+        {
+            return ruleBuilder
+                .NotEmpty()
+                    .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
+                .Must(isValidYear)
+                    .WithMessage("{PropertyName}, invalid year");
         }
     }
 }

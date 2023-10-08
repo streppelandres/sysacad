@@ -17,6 +17,7 @@ namespace Application.Mappers
             CreateMap<CreateCourseCommand, Course>();
             CreateMap<Schedule, ScheduleDto>();
             CreateMap<Course, GetAllCoursesByStudentIdResponse>();
+            CreateMap<Course, CourseDto>();
         }
     }
 }
