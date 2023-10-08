@@ -14,6 +14,7 @@ namespace Domain.Entities
         public string ClassRoom { get; set; }
         public int Code { get; set; }
         public short MaxStudents { get; set; }
+        public string Status { get; set; }
         public ICollection<StudentCourse> StudentCourses { get; set; }
         public ICollection<Schedule> Schedules { get; set; }
     }

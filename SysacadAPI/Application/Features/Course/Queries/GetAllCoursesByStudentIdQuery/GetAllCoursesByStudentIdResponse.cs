@@ -11,6 +11,7 @@ namespace Application.Features.Course.Queries.GetAllCoursesByStudentIdQuery
         public short Quarter { get; set; }
         public string Shift { get; set; }
         public string ClassRoom { get; set; }
+        public string Status { get; set; }
         public ICollection<ScheduleDto> Schedules { get; set; }
     }
 }

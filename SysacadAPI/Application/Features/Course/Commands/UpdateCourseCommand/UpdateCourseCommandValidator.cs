@@ -45,6 +45,9 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
 
             RuleFor(x => x.EndDate)
                 .ValidateDateTime();
+
+            RuleFor(x => x.Status)
+                .ValidateStatus();
         }
     }
 }

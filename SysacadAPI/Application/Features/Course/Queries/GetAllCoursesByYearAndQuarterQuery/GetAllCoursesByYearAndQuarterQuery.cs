@@ -27,7 +27,7 @@ namespace Application.Features.Course.Queries.GetAllCoursesByYearAndQuarterQuery
 
         public async Task<ResponseWrapper<ICollection<CourseDto>>> Handle(GetAllCoursesByYearAndQuarterQuery request, CancellationToken cancellationToken)
         {
-            var courses = await _repositoryAsync.ListAsync(new CourseByYearAndQuarterpecification(request.Year, request.Quarter));
+            var courses = await _repositoryAsync.ListAsync(new CourseByYearAndQuarterSpecification(request.Year, request.Quarter));
             if (!courses.Any()) throw new ApiException($"Courses not found with the Year: {request.Year} and the Quarter: {request.Quarter}");
             var coursesDtos = _mapper.Map<ICollection<CourseDto>>(courses);
             return new ResponseWrapper<ICollection<CourseDto>>(coursesDtos);

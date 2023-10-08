@@ -9,6 +9,7 @@
 - [ ] Creates JWT
 - [ ] Add roles with JWT
 - [ ] Try to investigate if is possible to create something like secrets for the config
+- [ ] Make all saved data in db in Capitalize
 
 ## Schedule
 - [ ] Change `string` type to the dates (`StartTime` and `EndTime`) of `Schedule`

@@ -19,6 +19,7 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
         public string EndDate { get; set; } // TODO: Type and format % "18/07/2023", in db "20230718"
         public short Quarter { get; set; } // TODO: type
         public string Shift { get; set; } // TODO: Type
+        public string Status { get; set; }
     }
 
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, ResponseWrapper<int>>

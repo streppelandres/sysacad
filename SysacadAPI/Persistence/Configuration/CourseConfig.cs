@@ -53,6 +53,10 @@ namespace Persistence.Configuration
 
             builder.Property(p => p.EndDate)
                 .IsRequired(false);
+
+            builder.Property(p => p.Status)
+                .HasDefaultValue("New")
+                .IsRequired(false);
         }
     }
 }
