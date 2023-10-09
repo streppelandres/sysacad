@@ -29,14 +29,14 @@ namespace Application.Features.Student.Queries.GetStudentScheduleQuery
             var student = await _studentRepositoryAsync.GetByIdAsync(request.StudentId);
             if (student == null) throw new ApiException($"Student {request.StudentId} not found");
 
-            // Creates other specification where filter status new or in progress
-            var courses = await _courseRepositoryAsync.ListAsync(new CourseByStudentIdSpecification(request.StudentId));
+            var courses = await _courseRepositoryAsync.ListAsync(new CourseActiveByStudentIdSpecification(request.StudentId));
             if (!courses.Any()) throw new ApiException($"Students courses not found");
 
             var response = courses.Select(course => new GetStudentScheduleQueryResponse
             {
                 Name = course.Name,
                 Division = course.Division,
+                ClassRoom = course.ClassRoom,
                 Schedules = course.Schedules.Select(schedule => new ScheduleDto
                 {
                     DayOfWeek = schedule.DayOfWeek,

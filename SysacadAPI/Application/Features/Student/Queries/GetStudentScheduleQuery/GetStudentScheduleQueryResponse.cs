@@ -6,6 +6,7 @@ namespace Application.Features.Student.Queries.GetStudentScheduleQuery
     {
         public string Name { get; set; }
         public string Division { get; set; }
+        public string ClassRoom { get; set; }
         public List<ScheduleDto> Schedules { get; set; }
     }
 }
