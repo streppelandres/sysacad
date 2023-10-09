@@ -6,12 +6,9 @@ using MediatR;
 
 namespace Application.Features.Schedule.Commands.UpdateScheduleCommand
 {
-    public class UpdateScheduleCommand : IRequest<ResponseWrapper<int>>
+    public class UpdateScheduleCommand : CreateScheduleCommand.CreateScheduleCommand
     {
         public int Id { get; set; }
-        public string DayOfWeek { get; set; }
-        public string StartTime { get; set; } // TODO Type
-        public string EndTime { get; set; } // TODO Type
     }
 
     public class UpdateScheduleCommandHanlder : IRequestHandler<UpdateScheduleCommand, ResponseWrapper<int>>
@@ -36,7 +33,7 @@ namespace Application.Features.Schedule.Commands.UpdateScheduleCommand
 
             await _repositoryAsync.UpdateAsync(schedule);
 
-            return new ResponseWrapper<int>(schedule.Id);
+            return new ResponseWrapper<int>(schedule.Id, "Schedule updated correctly");
         }
     }
 }

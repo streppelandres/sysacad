@@ -7,7 +7,7 @@ using AutoMapper;
 using MediatR;
 
 
-namespace Application.Features.Schedule.Queries.GetAllSchedulesByCourseId
+namespace Application.Features.Schedule.Queries.GetAllSchedulesByCourseIdQuery
 {
     public class GetAllSchedulesByCourseIdQuery : IRequest<ResponseWrapper<ICollection<ScheduleDto>>>
     {

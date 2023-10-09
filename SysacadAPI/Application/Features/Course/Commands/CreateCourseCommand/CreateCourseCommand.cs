@@ -15,6 +15,11 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
         public short MaxStudents { get; set; }
         public string ClassRoom { get; set;  }
         public string Division { get; set; }
+        public string StartDate { get; set; } // TODO: Type and format % "18/07/2023", in db "20230718"
+        public string EndDate { get; set; } // TODO: Type and format % "18/07/2023", in db "20230718"
+        public short Quarter { get; set; } // TODO: type
+        public string Shift { get; set; } // TODO: Type
+        public string Status { get; set; }
     }
 
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, ResponseWrapper<int>>
@@ -35,7 +40,7 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
 
             var mappedCourse = _mapper.Map<Domain.Entities.Course>(request);
             var data = await _repositoryAsync.AddAsync(mappedCourse);
-            return new ResponseWrapper<int>(data.Id);
+            return new ResponseWrapper<int>(data.Id, "Course created correctly");
         }
     }
 }

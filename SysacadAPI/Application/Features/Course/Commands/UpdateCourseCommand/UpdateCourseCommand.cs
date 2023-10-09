@@ -7,15 +7,9 @@ using MediatR;
 
 namespace Application.Features.Course.Commands.UpdateCourseCommand
 {
-    public class UpdateCourseCommand : IRequest<ResponseWrapper<int>>
+    public class UpdateCourseCommand : CreateCourseCommand.CreateCourseCommand
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Code { get; set; }
-        public short MaxStudents { get; set; }
-        public string ClassRoom { get; set; }
-        public string Division { get; set; }
     }
 
     public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, ResponseWrapper<int>>
@@ -43,10 +37,14 @@ namespace Application.Features.Course.Commands.UpdateCourseCommand
             course.MaxStudents = request.MaxStudents;
             course.ClassRoom = request.ClassRoom;
             course.Division = request.Division;
+            course.Quarter = request.Quarter;
+            course.StartDate = request.StartDate;
+            course.EndDate = request.EndDate;
+            course.Shift = request.Shift;
 
             await _repositoryAsync.UpdateAsync(course);
 
-            return new ResponseWrapper<int>(course.Id);
+            return new ResponseWrapper<int>(course.Id, "Course updated correctly");
         }
     }
 }

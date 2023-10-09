@@ -19,7 +19,7 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
                     .WithMessage(GenericValidationMessages.PropertyNameMaxLenghtMessage);
 
             RuleFor(x => x.Division)
-                .MaximumLength(1)
+                .MaximumLength(2)
                     .WithMessage(GenericValidationMessages.PropertyNameMaxLenghtMessage);
 
             RuleFor(x => x.Code)
@@ -31,8 +31,23 @@ namespace Application.Features.Course.Commands.CreateCourseCommand
             RuleFor(x => x.MaxStudents)
                 .NotEmpty()
                     .WithMessage(GenericValidationMessages.PropertyNameNotEmptyMessage)
-                .GreaterThan((short)0)
+                .GreaterThan((short) 0)
                     .WithMessage(GenericValidationMessages.PropertyMustBeGreaterThanZeroMessage);
+
+            RuleFor(x => x.Quarter)
+                .ValidateQuarter();
+
+            RuleFor(x => x.Shift)
+                .ValidateShift();
+
+            RuleFor(x => x.StartDate)
+                .ValidateDateTime();
+
+            RuleFor(x => x.EndDate)
+                .ValidateDateTime();
+
+            RuleFor(x => x.Status)
+                .ValidateStatus();
         }
 
     }

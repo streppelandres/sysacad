@@ -2,8 +2,11 @@
 
 namespace Domain.Entities
 {
-    public class Student : User
+    public class Student
     {
-        public ICollection<StudentCourse> StudentCourses { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public List<Course> Courses { get; } = new();
     }
 }

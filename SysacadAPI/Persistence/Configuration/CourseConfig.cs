@@ -20,7 +20,7 @@ namespace Persistence.Configuration
                 .IsRequired(false);
 
             builder.Property(p => p.Division)
-                .HasMaxLength(1)
+                .HasMaxLength(2)
                 .IsRequired(true);
 
             builder.Property(p => p.Code)
@@ -29,19 +29,6 @@ namespace Persistence.Configuration
             builder.Property(p => p.MaxStudents)
                 .IsRequired(true);
 
-            builder.Property(p => p.CreatedBy)
-                .HasMaxLength(50)
-                .IsRequired(false);
-
-            builder.Property(p => p.LastModifiedBy)
-                .HasMaxLength(50)
-                .IsRequired(false);
-
-            builder
-                .HasMany(c => c.StudentCourses)
-                .WithOne(sc => sc.Course)
-                .HasForeignKey(sc => sc.CourseId);
-
             builder.HasIndex(x => x.Code)
                 .IsUnique();
 
@@ -49,6 +36,26 @@ namespace Persistence.Configuration
                 .WithOne(s => s.Course)
                 .HasForeignKey(s => s.CourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(p => p.Quarter)
+                .IsRequired(true);
+
+            builder.Property(p => p.Shift)
+                .IsRequired(true);
+
+            builder.Property(p => p.StartDate)
+                .IsRequired(false);
+
+            builder.Property(p => p.EndDate)
+                .IsRequired(false);
+
+            builder.Property(p => p.Status)
+                .HasDefaultValue("New")
+                .IsRequired(false);
+
+            builder
+                .HasMany(e => e.Students)
+                .WithMany(e => e.Courses);
         }
     }
 }
