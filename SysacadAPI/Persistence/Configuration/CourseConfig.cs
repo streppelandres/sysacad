@@ -55,7 +55,7 @@ namespace Persistence.Configuration
 
             builder
                 .HasMany(e => e.Students)
-        .       WithMany(e => e.Courses);
+                .WithMany(e => e.Courses);
         }
     }
 }

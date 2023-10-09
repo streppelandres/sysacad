@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Course\Queries\GetCourseByIdQuery\" />
     <Folder Include="Features\Student\Queries\GetAllStudentByCourseId\" />
   </ItemGroup>
 

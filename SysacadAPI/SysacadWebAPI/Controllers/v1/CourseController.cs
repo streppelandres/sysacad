@@ -4,6 +4,7 @@ using Application.Features.Course.Commands.UpdateCourseCommand;
 using Application.Features.Course.Queries.GetAllCoursesAvailablesForEnrollmentQuery;
 using Application.Features.Course.Queries.GetAllCoursesByStudentIdQuery;
 using Application.Features.Course.Queries.GetAllCoursesByYearAndQuarterQuery;
+using Application.Features.Course.Queries.GetCourseByIdQuery;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -12,6 +13,11 @@ namespace SysacadWebAPI.Controllers.v1
     [ApiVersion("1.0")]
     public class CourseController : BaseApiController
     {
+        [HttpGet("{id}")]
+        [SwaggerOperation(Summary = "Get a Course", Description = "")]
+        public async Task<IActionResult> Get(int id)
+            => Ok(await Mediator.Send(new GetCourseByIdQuery { Id = id }));
+
         [HttpGet("avalibles")]
         [SwaggerOperation(Summary = "Gets all avalibles courses for inscription", Description = "")]
         public async Task<IActionResult> GetAvaliblesForEnrollment()

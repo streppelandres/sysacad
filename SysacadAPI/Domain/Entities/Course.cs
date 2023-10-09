@@ -16,6 +16,6 @@ namespace Domain.Entities
         public short MaxStudents { get; set; }
         public string Status { get; set; }
         public List<Student> Students { get; } = new();
-        public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
+        public List<Schedule> Schedules { get; set; } = new();
     }
 }
