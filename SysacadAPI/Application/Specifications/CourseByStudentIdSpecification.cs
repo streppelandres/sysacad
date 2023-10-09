@@ -6,7 +6,7 @@ namespace Application.Specifications
     {
         public CourseByStudentIdSpecification(int studentId)
         {
-            Query.Where(course => course.StudentCourses.Any(sc => sc.StudentId == studentId));
+            Query.Where(course => course.Students.Any(sc => sc.Id == studentId));
         }
     }
 }

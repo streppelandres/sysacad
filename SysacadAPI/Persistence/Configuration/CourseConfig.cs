@@ -29,11 +29,6 @@ namespace Persistence.Configuration
             builder.Property(p => p.MaxStudents)
                 .IsRequired(true);
 
-            builder
-                .HasMany(c => c.StudentCourses)
-                .WithOne(sc => sc.Course)
-                .HasForeignKey(sc => sc.CourseId);
-
             builder.HasIndex(x => x.Code)
                 .IsUnique();
 
@@ -57,6 +52,10 @@ namespace Persistence.Configuration
             builder.Property(p => p.Status)
                 .HasDefaultValue("New")
                 .IsRequired(false);
+
+            builder
+                .HasMany(e => e.Students)
+        .       WithMany(e => e.Courses);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Domain.Entities
         public int Id { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public ICollection<StudentCourse> StudentCourses { get; set; }
+        public List<Course> Courses { get; } = new();
     }
 }

@@ -8,7 +8,7 @@ namespace Application.Specifications
         {
             Query.Where(c =>
                 c.Status.ToLower() == "new" &&
-                c.MaxStudents > c.StudentCourses.Count()
+                c.MaxStudents > c.Students.Count()
             );
         }
     }

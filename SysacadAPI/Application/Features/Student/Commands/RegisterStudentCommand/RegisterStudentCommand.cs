@@ -28,7 +28,7 @@ namespace Application.Features.Student.Commands.RegisterStudentCommand
 
         public async Task<ResponseWrapper<int>> Handle(RegisterStudentCommand request, CancellationToken cancellationToken)
         {
-            var existedUser = await _userRepositoryAsync.FirstOrDefaultAsync(new UserWithIdSpecification(request.UserId));
+            var existedUser = await _userRepositoryAsync.GetByIdAsync(request.UserId);
             if (existedUser == null) throw new ApiException($"User {request.UserId} not found");
 
             var registeredStudent = await _studentRepositoryAsync.FirstOrDefaultAsync(new StudentRegisteredUserSpecification(request.UserId));

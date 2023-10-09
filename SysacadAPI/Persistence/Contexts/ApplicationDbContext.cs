@@ -12,7 +12,6 @@ namespace Persistence.Contexts
         private readonly IDateTimeService _dateTimeService;
         public DbSet<User> Users { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<StudentCourse> StudentsCourses { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
 

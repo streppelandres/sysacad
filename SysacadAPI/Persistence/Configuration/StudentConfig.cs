@@ -14,11 +14,6 @@ namespace Persistence.Configuration
                 .HasOne(s => s.User)
                 .WithOne()
                 .HasForeignKey<Student>(s => s.UserId);
-
-            builder
-                .HasMany(e => e.StudentCourses)
-                .WithOne(sc => sc.Student)
-                .HasForeignKey(sc => sc.StudentId);
         }
     }
 }
