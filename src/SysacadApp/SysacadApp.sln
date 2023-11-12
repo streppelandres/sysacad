@@ -5,11 +5,13 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7202325D-2410-43F3-94AB-E14A5B26A734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "src\Presentation\Presentation.csproj", "{BA3185C8-4CF6-4F5A-9476-D793A4ACB53E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "src\Presentation\Presentation.csproj", "{BA3185C8-4CF6-4F5A-9476-D793A4ACB53E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{8ADD4C13-CD54-4F07-8466-C42C879ECDD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{8ADD4C13-CD54-4F07-8466-C42C879ECDD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "src\Persistence\Persistence.csproj", "{36135768-1F67-4E68-8B17-4390F177001B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\Persistence\Persistence.csproj", "{36135768-1F67-4E68-8B17-4390F177001B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "src\Entities\Entities.csproj", "{0371C53F-E62F-48AC-9756-168BCDE76AE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{36135768-1F67-4E68-8B17-4390F177001B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36135768-1F67-4E68-8B17-4390F177001B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36135768-1F67-4E68-8B17-4390F177001B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0371C53F-E62F-48AC-9756-168BCDE76AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0371C53F-E62F-48AC-9756-168BCDE76AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0371C53F-E62F-48AC-9756-168BCDE76AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0371C53F-E62F-48AC-9756-168BCDE76AE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{BA3185C8-4CF6-4F5A-9476-D793A4ACB53E} = {7202325D-2410-43F3-94AB-E14A5B26A734}
 		{8ADD4C13-CD54-4F07-8466-C42C879ECDD9} = {7202325D-2410-43F3-94AB-E14A5B26A734}
 		{36135768-1F67-4E68-8B17-4390F177001B} = {7202325D-2410-43F3-94AB-E14A5B26A734}
+		{0371C53F-E62F-48AC-9756-168BCDE76AE0} = {7202325D-2410-43F3-94AB-E14A5B26A734}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50F8F251-ACAE-42F1-85D8-F5F43521E3BE}
