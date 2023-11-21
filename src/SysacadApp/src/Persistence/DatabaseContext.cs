@@ -7,6 +7,11 @@ namespace Persistence
     public class DatabaseContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Professor> Professors { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         public DatabaseContext() : base() { }
 

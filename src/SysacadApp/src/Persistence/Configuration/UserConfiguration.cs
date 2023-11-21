@@ -38,6 +38,7 @@ namespace Persistence.Configuration
                 .HasMaxLength(20);
 
             builder.Property(x => x.Birthday)
+                .HasColumnType("date")
                 .IsRequired();
 
             builder.Property(x => x.HasToChangePassword)
